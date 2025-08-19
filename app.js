@@ -10,16 +10,20 @@ const users = [];
 // Create user
 app.post('/users', (req, res) => {
   const { name, email } = req.body;
+  console.log('POST /users called with:', req.body);
   if (!name || !email) {
+    console.log('POST /users missing name or email');
     return res.status(400).json({ error: 'Name and email are required.' });
   }
   const user = { id: users.length + 1, name, email };
   users.push(user);
+  console.log('User created:', user);
   res.status(201).json(user);
 });
 
 // Get all users
 app.get('/users', (req, res) => {
+  console.log('GET /users called');
   res.json(users);
 });
 
