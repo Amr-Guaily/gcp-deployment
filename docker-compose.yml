@@ -7,8 +7,8 @@ services:
       - 3000:3000
     environment:
       NODE_ENV: production
-      DB_HOST: db
-      DB_PORT: 5432
+      DB_HOST: db # Tells our app to connect to the database service named `db` (the postgres container).
+      DB_PORT: 5432 # The default Postgres port, our app uses to know which port to connect to on the `db` service.
       DB_USER: user
       DB_PASSWORD: password
       DB_NAME: mydb
