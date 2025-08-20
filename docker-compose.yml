@@ -5,8 +5,8 @@ services:
       dockerfile: Dockerfile
     container_name: my_app_container
     restart: unless-stopped
-    ports:
-      - 3000:3000
+    # ports:
+    #   - 3000:3000 If you expose port 3000 ➡ users can bypass Nginx and access Express dirctly. which defeats the purpose the purpose of the reverse proxy.
     environment:
       NODE_ENV: production
       DB_HOST: db # Tells our app to connect to the database service named `db` (the postgres container).
