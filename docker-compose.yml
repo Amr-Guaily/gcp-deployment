@@ -3,8 +3,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      container_name: my_app_container
-      restart: unless-stopped
+    container_name: my_app_container
+    restart: unless-stopped
     ports:
       - 3000:3000
     environment:
