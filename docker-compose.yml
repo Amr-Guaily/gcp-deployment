@@ -3,6 +3,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      container_name: my_app_container
+      restart: unless-stopped
     ports:
       - 3000:3000
     environment:
@@ -16,7 +18,8 @@ services:
       - db
 
   db:
-    image: postgres:latest
+    image: postgres:17-alpine
+    container_name: my_db_container
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
