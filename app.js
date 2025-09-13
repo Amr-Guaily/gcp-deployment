@@ -14,6 +14,10 @@ const pool = new Pool({
   database: process.env.DB_NAME,
 });
 
+app.get('/healthz', (req, res) => {
+  res.send({ status: 'OK' });
+});
+
 // Create user
 app.post('/users', async (req, res) => {
   const { name, email } = req.body;
